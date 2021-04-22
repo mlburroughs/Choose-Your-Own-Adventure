@@ -4,7 +4,6 @@ Choose Your Own Adventure
 Description: This file creates instances of a Choose Your Own Adventure story
 using a story created by the author
 
-
 Author: Michelle Burroughs
 """
 
