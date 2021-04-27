@@ -31,6 +31,7 @@ Author: Michelle Burroughs
 
 from Substories import *
 
+
 class MainStory:
 
     def __init__(self, name):
@@ -60,26 +61,27 @@ class MainStory:
 
     # Navigates modules
     def nav(self):
-        if len(path[self.path]) > 1: # If value of path features options
-            try: # User updates choice
+        if len(path[self.path]) > 1 and path[self.path][1] != 'na':  # If path features options
+            try:  # User updates choice
                 self.choice = input("Please choose either {} by typing 1 or {} by typing 2: ".format(self.options[0],
-                                                                                             self.options[1]))
+                                                                                                     self.options[1]))
             except IndexError:
                 print("Choice is out of range")
+            self.moral_points = self.moralpoints(mp)# Updates moral points
+            self.path = path[self.path][int(self.choice) - 1]  # Updates path
+            if self.path != 10 and self.path != 12 and self.path != 14 and self.path != 15 and self.path != 8 and \
+                    self.path != 9 and self.path != 11 and self.path != 13:  # If new options in new path
+                self.options = options[self.path - 1]# Updates options
 
-            self.path = path[self.path][int(self.choice) - 1] #Updates path
-            if self.path != 10 and self.path != 12 and self.path != 14 and self.path != 15: # If new options in new path
-                self.options = options[self.path - 1]
-                self.moral_points = self.moralpoints(mp)
+        else:  # If options do not exist in current path
+            self.path = path[self.path][0]  # Updates path
+            self.options = options[self.path - 1]
 
-        else: # If options do not exist in current path
-            self.path = path[self.path] #Updates path
-
-        self.text = text[self.path - 1] # Updates Text
-        self.collect(storyitems) # collects items
-        self.chapter += 1 # Updates Chapter
+        self.text = text[self.path - 1]  # Updates Text
+        self.collect(storyitems)  # collects items
+        self.chapter += 1  # Updates Chapter
         return self.path, self.options, self.text, self.choice, self.chapter, self.moral_points, self.items, \
-               self.itemstotal
+               self.itemstotal, self.moral_points
 
     # Prints current text
     def currentState(self):
@@ -104,7 +106,8 @@ class MainStory:
 
     # Adds moral_points for use in calculating ending
     def moralpoints(self, mp):
-        self.moral_points += mp[self.path - 1][int(self.choice)-1]
+        self.moral_points += mp[self.path - 1][int(self.choice) - 1]
+        print(self.moral_points)
         return self.moral_points
 
     # Adds items collected, each item has a value used for calculating ending
@@ -116,5 +119,5 @@ class MainStory:
         return self.items, self.itemstotal
 
 
-newStory = MainStory('Logan') #create new instance of story
-newStory.showtime() #runs the story to completion
+newStory = MainStory('Logan')  # creates new instance of story
+newStory.showtime()  # runs the story to completion
