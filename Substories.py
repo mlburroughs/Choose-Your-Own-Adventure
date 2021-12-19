@@ -33,7 +33,7 @@ to a worn out, if not downright filthy, doll.
 
 Choose your first step wisely."""
 
-options1 = ["venturing towards the illuminated bronze panel", "approaching the little girl"]
+options1 = ["venture towards the illuminated bronze panel", "approach the little girl"]
 
 text2 = """As you draw closer to the bronze plaque, you see an older gentlemen arguing to himself. 
 Unsure if it's your already vulnerable imagination influenced from a mixture of sugary hurricanes 
@@ -47,7 +47,7 @@ now opened into a stairwell descending into the earth. Unsure about diving into 
 watery grave, you hear an upbeat jazz trumpet which seems much more light-hearted than where the
 gentleman points."""
 
-options2 = ["entering into the mysterious portal of Homer Plessy", "following the jazz trumpet"]
+options2 = ["enter into the mysterious portal of Homer Plessy", "follow the jazz trumpet"]
 
 text3 = """'Dors mon petit ange' or 'sleep my little angel' is what you overhear the fair-haired, 
 partly decomposed girl say as she gently rocks her dilapidated but clearly 18th century era doll. 
@@ -59,7 +59,7 @@ them so long, mon bebe is all I have left,' she replies in despondent french acc
 she inquires and you must make a choice: help her find her parents or continue to find something 
 less-disease ridden and rotting to look at."""
 
-options3 = ["helping the yellow-fever stricken girl", "continuing on your way"]
+options3 = ["help the yellow-fever stricken girl", "continue on your way"]
 
 text4 = """As you enter the portal and descend the cobble-stone stairwell, you are instantly placed in the 
 middle of Jackson Square in stark daylight. Wincing as your eyes slowly adjust to the bright surroundings, 
@@ -72,7 +72,7 @@ work for food.' Do you confront the arrogant group of disrespectful and trashy p
 to follow yourself in hopes of sampling more of the banana foster french toast to the sounds of a live jazz 
 ensemble?"""
 
-options4 = ["confronting the harassing party-goers", "ignoring the scene just witness and continue to follow yourself"]
+options4 = ["confront the harassing party-goers", "ignore the scene just witness and continue to follow yourself"]
 
 text5 = """Ignoring the somber apparition and continuing on your way toward the trumpet, you feel a subtle 
 yet ominous warning. Shaking off any discomfort, you tell yourself: 'Of course the world has changed,' you 
@@ -81,7 +81,7 @@ your guard, a stocky middle-aged man swiftly puts down his trumpet and picks up 
 neck! It is flight or fight time! Do you run between the opening you see between two adjacent vaults to right 
 or do you confront the threatening axeman and possibly lose your own life?"""
 
-options5 = ["sprinting away from the murderous apparition", "confronting the threatening axeman and fight"]
+options5 = ["sprint away from the murderous apparition", "confront the threatening axeman and fight"]
 
 text6 = """'Please stop crying, I can try to help you,' you try to say reassuringly. Instantly, her demeanor
 transforms from nearly inconsolable and listless to carefree and energetic. She says, 'Oh thank you! All the 
@@ -91,7 +91,7 @@ grave? It is only around the corner past the bench?' Unsure what interacting wit
 you ponder if this is the path that would help the sickly, yet clearly innocent spirit find her parents. Do you 
 follow her to the grave of the voodoo priestess or do you suggest another option?"""
 
-options6 = ["following the girl to Madame Laveau's grave", "asking the girl for a different, less black magic oriented "
+options6 = ["follow the girl to Madame Laveau's grave", "ask the girl for a different, less black magic oriented "
                                                            "option"]
 
 text7 = """'I'm sorry,' you try to say with compassion. 'I'm not sure there is anything I can do to help', 
@@ -104,7 +104,7 @@ slave owner apparently used her position to torture her slaves and even use the 
 as part of her beauty regime. As soon as you turn around, a portly middle-aged woman stands right in front 
 of you and asks in a sweet unassuming southern drawl, 'Mon Cheri, will you ever be so kind and set me free?'"""
 
-options7 = ["setting Madame LaLaurie free", "telling her off and trying to lock her further into her grave"]
+options7 = ["sett Madame LaLaurie free", "tell her off and trying to lock her further into her grave"]
 
 text8 = """'Hey!, stop that!,' you say to the drunken idiots. They ignore you as expected as they head 
 toward the next bar but you pick up a half empty beer car and chuck it in their direction. 'What is your 
