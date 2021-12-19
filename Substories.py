@@ -104,7 +104,7 @@ slave owner apparently used her position to torture her slaves and even use the 
 as part of her beauty regime. As soon as you turn around, a portly middle-aged woman stands right in front 
 of you and asks in a sweet unassuming southern drawl, 'Mon Cheri, will you ever be so kind and set me free?'"""
 
-options7 = ["sett Madame LaLaurie free", "tell her off and trying to lock her further into her grave"]
+options7 = ["set Madame LaLaurie free", "tell her off and trying to lock her further into her grave"]
 
 text8 = """'Hey!, stop that!,' you say to the drunken idiots. They ignore you as expected as they head 
 toward the next bar but you pick up a half empty beer car and chuck it in their direction. 'What is your 
@@ -234,4 +234,4 @@ endings = (ending1, ending2, ending3)
 mp = ((1, 0), (3, -4), (3, -4), (-10, 4), (7, -1), (-9, 4))
 
 # Items
-story_items = {'statue': 4, 'judge hammer': 3, 'silver spoon': -10, 'beads': -3,  'axe trophy ': 3}
+story_items = {'statue': 4, 'judge hammer': 3, 'silver spoon': -10, 'beads': -3,  'axe trophy': 3}

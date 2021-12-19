@@ -31,6 +31,7 @@ class TreeNode:
         self.moral_points = moral_points
         self.story_items = story_items
 
+
     def add_child(self, child_text):
         self.choices.append(child_text)
 
@@ -42,7 +43,8 @@ class TreeNode:
         tmp = 0  # total moral points local variable initialized
         tip = 0  # total item points local variable initialized
 
-        print(story_node.print_story_node(chapter))  # print story root
+        story_node.print_story_node(chapter)  # print story root
+
 
         # while node has at least one child, additional chapters are executed
         while story_node.choices:
@@ -53,7 +55,7 @@ class TreeNode:
                 chosen_child = story_node.choices[chosen_index]
                 chapter += 1
                 story_node = chosen_child
-                print(story_node.print_story_node(chapter))
+                story_node.print_story_node(chapter)
             else:  # user chooses child from node
                 optiona = story_node.option_text[0]
                 optionb = story_node.option_text[1]
@@ -66,7 +68,7 @@ class TreeNode:
                     chosen_child = story_node.choices[chosen_index]
                     chapter += 1
                     story_node = chosen_child
-                    print(story_node.print_story_node(chapter))
+                    story_node.print_story_node(chapter)
                     tmp = story_node.add_moral_points(tmp, chosen_index)
                     tip = story_node.add_story_items(tip)
 
@@ -77,6 +79,7 @@ class TreeNode:
         print("Chapter: {}".format(chapter))
         print(self.story_piece)
         print()
+
 
     def add_moral_points(self, tmp, chosen_index):
         if self.moral_points is not None:
