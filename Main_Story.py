@@ -2,122 +2,69 @@
 Main_Story.py
 
 Project Title: Choose Your Own Adventure
-Description: This file creates instances of a Choose Your Own Adventure story using an original story created
-by the author. The content and path logic are found in Substories.py.
+Description: This file executes the Choose Your Own Adventure story using an original story created
+by the author. The text content is found in Substories.py and the tree structure is found in Tree_Node.py.
 
 class functions:
-__init__(): initializes story
-
-__repr__(): gives string representation of class
-
-showtime(): runs the storyline until completion
-
-nav(): updates the path (self.path based choice (if applicable) to update text (self.text),
-moral points (self.moral_points), options (self.options), collected items (self.items), itemstotal (self.itemstotal),
-and chapter (self.chapter)
-
-currentState(): prints out current text
-
-endings(): computes and prints ending based on items total (self.items_total and moral points (self.moral_points)
-
-moralpoints(): updates the moral points (self.moral_points)
-
-collect(): updates the items collected based on keyword in subtext.
+endings() - computes and prints ending based on items total (self.items_total and moral points (self.moral_points)
 
 
 Author: Michelle Burroughs
-4/25/2021
+Date: 4/25/2021
+12/19/2021 - Complete restructure of program used Tree Data Structure for simplification
 """
 
 from Substories import *
+from Tree_Node import *
 
 
 class MainStory:
 
-    def __init__(self, name):
-        self.name = name
-        self.path = 1
-        self.choice = 0
-        self.options = options[0]
-        self.text = text[0]
-        self.chapter = 1
-        self.moral_points = 0
-        self.items = []
-        self.itemstotal = 0
-
-        print("Welcome {} to Into St. Louis Cemetery #1: A Choose Your Own Adventure Story".format(self.name) + "\n" +
-              "\n" + self.text + "\n")
-
-    def __repr__(self):
-        return "Into St. Louis Cemetery #1: A Choose Your Own Adventure Story, story defined by {}".format(self.name)
-
-    # Plays out story to completion
-    def showtime(self):
-        while self.path != 10 and self.path != 12 and self.path != 14 and self.path != 15:
-            self.nav()
-            self.currentState()
-        self.endings()
-        return
-
-    # Navigates modules
-    def nav(self):
-        if len(path[self.path]) > 1 and path[self.path][1] != 'na':  # If path features options
-            try:  # User updates choice
-                self.choice = input("Please choose either {} by typing 1 or {} by typing 2: ".format(self.options[0],
-                                                                                                     self.options[1]))
-            except IndexError:
-                print("Choice is out of range")
-            self.moral_points = self.moralpoints(mp)# Updates moral points
-            self.path = path[self.path][int(self.choice) - 1]  # Updates path
-            if self.path != 10 and self.path != 12 and self.path != 14 and self.path != 15 and self.path != 8 and \
-                    self.path != 9 and self.path != 11 and self.path != 13:  # If new options in new path
-                self.options = options[self.path - 1]# Updates options
-
-        else:  # If options do not exist in current path
-            self.path = path[self.path][0]  # Updates path
-            self.options = options[self.path - 1]
-
-        self.text = text[self.path - 1]  # Updates Text
-        self.collect(storyitems)  # collects items
-        self.chapter += 1  # Updates Chapter
-        return self.path, self.options, self.text, self.choice, self.chapter, self.moral_points, self.items, \
-               self.itemstotal, self.moral_points
-
-    # Prints current text
-    def currentState(self):
-        print('\n')
-        print('Chapter: ' + str(self.chapter))
-        print(self.text)
-        print('\n')
-        return
-
-    # Calculates and prints ending
-    def endings(self):
-        total_ending = self.moral_points + self.itemstotal
+    def endings(total_moral_points, total_items):
+        total_ending = total_moral_points + total_items
         if total_ending >= 5:
             result = endings[0]
-        elif total_ending < 5 and total_ending > -5:
+        elif total_ending <= 5 and total_ending > -5:
             result = endings[1]
         else:
             result = endings[2]
-        print("Final Chapter:" + "\n" + result + "\n" + "Moral Points: " + str(total_ending))
+        print("Conclusion:" + "\n" + result + "\n" + "Moral Points: " + str(total_ending))
 
-        return
+    story_root = TreeNode(text1, options1)
+    text2 = TreeNode(text2, options2, mp[0])
+    text3 = TreeNode(text3, options3, mp[1])
+    text4 = TreeNode(text4, options4, mp[2])
+    text5 = TreeNode(text5, options5, mp[3])
+    text6 = TreeNode(text6, options6, mp[4])
+    text7 = TreeNode(text7, options7, mp[5])
+    text8 = TreeNode(text8, story_items='judge hammer')
+    text9 = TreeNode(text9, story_items='beads')
+    text10 = TreeNode(text10)
+    text11 = TreeNode(text11, story_items='axe trophy')
+    text12 = TreeNode(text12, story_items='statue')
+    text13 = TreeNode(text13)
+    text14 = TreeNode(text14, story_items='silver spoon')
+    text15 = TreeNode(text15)
 
-    # Adds moral_points for use in calculating ending
-    def moralpoints(self, mp):
-        self.moral_points += mp[self.path - 1][int(self.choice) - 1]
-        print(self.moral_points)
-        return self.moral_points
+    story_root.add_child(text2)
+    story_root.add_child(text3)
+    text2.add_child(text4)
+    text2.add_child(text5)
+    text3.add_child(text6)
+    text3.add_child(text7)
+    text4.add_child(text8)
+    text4.add_child(text9)
+    text5.add_child(text10)
+    text5.add_child(text11)
+    text6.add_child(text12)
+    text6.add_child(text13)
+    text7.add_child(text14)
+    text7.add_child(text15)
+    text8.add_child(text3)
+    text9.add_child(text4)
+    text11.add_child(text3)
+    text13.add_child(text7)
+    total_moral_points, total_items = story_root.traverse()
 
-    # Adds items collected, each item has a value used for calculating ending
-    def collect(self, storyitems):
-        for item in storyitems:
-            if item in self.text:
-                self.items.append(item)
-                self.itemstotal += storyitems[item]
-        return self.items, self.itemstotal
+    endings(total_moral_points, total_items)
 
-
-newStory = MainStory('Logan')  # creates new instance of story
-newStory.showtime()  # runs the story to completion

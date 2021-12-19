@@ -2,19 +2,19 @@
 SubStories.py
 Description: This file includes all the sub story modules for use in Main_Story.py
 
-path: dictionary containing the logic between sub modules
-text: tuple that contains all text sub files
+text(X): text blocks 1-15
 endings: tuple that contains all text endings
-options: tuple containing a sub tuple for path values that contain 2 options
+option(X): contains the option text for a respective text block
 mp: tuple containing moral points corresponding to options
 storyitems: dictionary containing key:value pairs of items found in the text.
 
 Author: Michelle Burroughs
 Date: 4/25/2021
+12/19/2021 Major restructure of project
 """
 
 # Text and Option (if applicable) of each module
-text1 = "Chapter 1" + "\n" + """On a dark, swampy night at the end of an amusing, yet tireing long weekend filled with 
+text1 = """On a dark, swampy night at the end of an amusing, yet tireing long weekend filled with 
 the usual tourist adventures of Bourbon St., alligator show and tells, and delicious creole cuisine, you decide to 
 venture into the most famous cemetery of the south: Saint Louis #1. A huge fan of the supernatural, you can't help but
 plan a night alone with the spirits. Filled with child-like mischief and the thrill of possibly having a real ghost 
@@ -159,7 +159,7 @@ to your initial hiding spot, fearful of running into Madame LaLaurie once more. 
 alert, you hear the moaning and sufferings of what seems to be every ghostly entity of the city of the dead.
 You hope that you won't become one of them tonight."""
 
-text15 = """"'Aren't you that racist bitch? Burn in hell,' you exclaim as she reveals her true nature. 'You don't know 
+text15 = """'Aren't you that racist bitch? Burn in hell,' you exclaim as she reveals her true nature. 'You don't know 
 anything, they deserved everything they got. After being driven out New Orleans by those hypocrites, I came back and 
 was welcomed with open arms. And I know I'm still welcomed in today's society, people still leave me flowers' she 
 proudly states. 'That might be so, but the world is definitely better off without you,' as you walk away resisting 
@@ -167,7 +167,7 @@ the urge to continue on your somewhat self-righteous tirade knowing that it will
 transitions into day, you slump down to review your night and if you have done enough to make right in this city of the 
 dead."""
 
-#Endings
+# Endings
 # Best Ending
 ending1 = """As you start to feel that exhaustion might overpower you imminently, you suddenly feel a rush of energy
 as the sun begins its ascent. 'It's over,' you say to yourself repeatedly as you eye the front gate. As you
@@ -206,20 +206,14 @@ The End."""
 
 
 # Path logic
-path = {1: (2, 3), 2: (4, 5), 3: (6, 7), 4: (8, 9), 5: (10, 11), 6: (12, 13), 7: (14, 15), 8: (3, 'na'), 9: (4, 'na'),
-        11: (3, 'na'), 13: (7, 'na')}
-
-# Text
-text = (text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15)
-
-# Options
-options = (options1, options2, options3, options4, options5, options6, options7)
+#path = {1: (2, 3), 2: (4, 5), 3: (6, 7), 4: (8, 9), 5: (10, 11), 6: (12, 13), 7: (14, 15), 8: (3, 'na'), 9: (4, 'na'),
+#        11: (3, 'na'), 13: (7, 'na')}
 
 # Endings
 endings = (ending1, ending2, ending3)
 
-# Moral points
-mp = ((0, 0), (1, 0), (3, -4), (3, -4), (-10, 4), (7, -1), (-9, 4))
+# Moral points (exist only if there are 2 options in a path)
+mp = ((1, 0), (3, -4), (3, -4), (-10, 4), (7, -1), (-9, 4))
 
 # Items
-storyitems = {'statue': 4, 'judge hammer': 3, 'silver spoon': -10, 'beads': -3,  'axe trophy ': 3}
+story_items = {'statue': 4, 'judge hammer': 3, 'silver spoon': -10, 'beads': -3,  'axe trophy ': 3}
