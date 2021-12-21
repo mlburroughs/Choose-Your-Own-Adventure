@@ -1,26 +1,24 @@
 """
-Main_Story.py
+main_story.py
 
 Project Title: Choose Your Own Adventure
 Description: This file executes the Choose Your Own Adventure story using an original story created
-by the author. The text content is found in Substories.py and the tree structure is found in Tree_Node.py.
-
-class functions:
-endings() - computes and prints ending based on items total (self.items_total and moral points (self.moral_points)
-
+by the author. The text content is found in substories.py and the tree structure is found in tree_node.py.
 
 Author: Michelle Burroughs
 Date: 4/25/2021
-12/19/2021 - Complete restructure of program used Tree Data Structure for simplification
 """
 
-from Substories import *
-from Tree_Node import *
+from substories import texts, options, endings, mp
+from tree_node import TreeNode
 
 
 class MainStory:
+    """defines the tree structure and executes interactive story"""
 
     def endings(total_moral_points, total_items):
+        """computes and prints ending based on items total (self.items_total) and moral points (self.moral_points)"""
+
         total_ending = total_moral_points + total_items
         if total_ending >= 5:
             result = endings[0]
@@ -30,21 +28,21 @@ class MainStory:
             result = endings[2]
         print("Conclusion:" + "\n" + result + "\n" + "Moral Points: " + str(total_ending))
 
-    story_root = TreeNode(text1, options1)
-    text2 = TreeNode(text2, options2, mp[0])
-    text3 = TreeNode(text3, options3, mp[1])
-    text4 = TreeNode(text4, options4, mp[2])
-    text5 = TreeNode(text5, options5, mp[3])
-    text6 = TreeNode(text6, options6, mp[4])
-    text7 = TreeNode(text7, options7, mp[5])
-    text8 = TreeNode(text8, story_items='judge hammer')
-    text9 = TreeNode(text9, story_items='beads')
-    text10 = TreeNode(text10)
-    text11 = TreeNode(text11, story_items='axe trophy')
-    text12 = TreeNode(text12, story_items='statue')
-    text13 = TreeNode(text13)
-    text14 = TreeNode(text14, story_items='silver spoon')
-    text15 = TreeNode(text15)
+    story_root = TreeNode(texts[0], options[0])
+    text2 = TreeNode(texts[1], options[1], mp[0])
+    text3 = TreeNode(texts[2], options[2], mp[1])
+    text4 = TreeNode(texts[3], options[3], mp[2])
+    text5 = TreeNode(texts[4], options[4], mp[3])
+    text6 = TreeNode(texts[5], options[5], mp[4])
+    text7 = TreeNode(texts[6], options[6], mp[5])
+    text8 = TreeNode(texts[7], story_items='judge hammer')
+    text9 = TreeNode(texts[8], story_items='beads')
+    text10 = TreeNode(texts[9])
+    text11 = TreeNode(texts[10], story_items='axe trophy')
+    text12 = TreeNode(texts[11], story_items='statue')
+    text13 = TreeNode(texts[12])
+    text14 = TreeNode(texts[13], story_items='silver spoon')
+    text15 = TreeNode(texts[14])
 
     story_root.add_child(text2)
     story_root.add_child(text3)
