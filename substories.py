@@ -4,7 +4,6 @@ Description: This file includes all the sub story modules for use in main_story.
 
 Author: Michelle Burroughs
 Date: 4/25/2021
-12/19/2021 Major restructure of project
 """
 
 # Text and Option Text (if applicable) of each module
@@ -218,21 +217,17 @@ didn't do, but selfishly of the thought of sharing your permanent resting place 
 
 The End.
 '''
-
-
-# Path logic used for reference
-#path = {1: (2, 3), 2: (4, 5), 3: (6, 7), 4: (8, 9), 5: (10, 11), 6: (12, 13), 7: (14, 15), 8: (3, 'na'), 9: (4, 'na'),
-#        11: (3, 'na'), 13: (7, 'na')}
-
+# texts: tuple containing all text
 texts = (text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15)
 
+# options: tuple containing all options if applicable
 options = (options1, options2, options3, options4, options5, options6, options7)
 
-# Endings: tuple that contains all text endings
+# endings: tuple that containing all text endings
 endings = (ending1, ending2, ending3)
 
-# Moral points (exist only if there are 2 options in a path) - tuple containing moral points corresponding to options
+# moral points (exist only if there are 2 options in a path) - tuple containing moral points corresponding to options
 mp = ((1, 0), (3, -4), (3, -4), (-10, 4), (7, -1), (-9, 4))
 
-# Items: dictionary with corresponding value used to determine ending
+# items: dictionary with corresponding value used to determine ending
 story_items = {'statue': 4, 'judge hammer': 3, 'silver spoon': -10, 'beads': -3,  'axe trophy': 3}

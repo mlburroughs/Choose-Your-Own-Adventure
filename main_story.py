@@ -14,10 +14,10 @@ from tree_node import TreeNode
 
 
 class MainStory:
-    """defines the tree structure and executes interactive story"""
+    """Defines the tree structure and executes interactive story."""
 
     def endings(total_moral_points, total_items):
-        """computes and prints ending based on items total (self.items_total) and moral points (self.moral_points)"""
+        """Computes and prints ending based on items total (self.items_total) and moral points (self.moral_points)."""
 
         total_ending = total_moral_points + total_items
         if total_ending >= 5:

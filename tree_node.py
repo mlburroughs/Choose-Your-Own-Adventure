@@ -10,27 +10,41 @@ Date 12/19/21
 """
 
 from substories import story_items
+import typing
+
 
 class TreeNode:
-    """provides the tree structure that allows each story module to be encapsulated
+    """Provides the tree structure that allows each story module to be encapsulated
     into a node structure, defines the relationship between nodes, and executes the traversal of
-    the choose your adventure story"""
+    the choose your adventure story."""
 
-    def __init__(self, story_piece, option_text=None, moral_points=None, story_items=None):
-        """creates a story node and defines the tree relationship between nodes"""
+    def __init__(self, story_piece, option_text=None, moral_points: typing.Tuple[int, int] = None, story_items=None):
+        """creates a story node and defines the tree relationship between nodes
+
+        Args:
+        story_piece (string): story text attached to self
+        moral_points (2-tuple): value attached to respective story modules children,
+        used to calculate ending
+        story_items (dict): each item corresponds to a value used to calculate ending
+
+        """
         self.story_piece = story_piece
         self.choices = []
         self.option_text = option_text
         self.moral_points = moral_points
         self.story_items = story_items
 
-
     def add_child(self, child_text):
-        """adds a child node to a node"""
+        """adds a child node to a node
+
+        Args:
+        child_text (TreeNode): story module to be added as a child of self
+
+        """
         self.choices.append(child_text)
 
     def traverse(self):
-        """executes the tree traversal"""
+        """Executes the tree traversal."""
 
         story_node = self
 
@@ -39,7 +53,6 @@ class TreeNode:
         tip = 0  # total item points local variable initialized
 
         story_node.print_story_node(chapter)  # print story root
-
 
         # while node has at least one child, additional chapters are executed
         while story_node.choices:
@@ -70,24 +83,36 @@ class TreeNode:
         return tmp, tip
 
     def print_story_node(self, chapter):
-        """prints the text of a story module"""
+        """prints the text of a story module
+
+        Args:
+        chapter (int): chapter number that corresponds with story module
+
+        """
         print()
         print("Chapter: {}".format(chapter))
         print(self.story_piece)
         print()
 
     def add_moral_points(self, tmp, chosen_index):
-        """adds moral points from a node"""
+        """adds moral points from a node
+
+        Args:
+        tmp (int): total moral points computed at each story module if applicable
+        chosen_index (int): index, 0 or 1, based on user input
+
+        """
         if self.moral_points is not None:
             tmp += self.moral_points[chosen_index]
         return tmp
 
     def add_story_items(self, tip):
-        """adds story item points from a node"""
+        """adds story item points from a node
+
+        Args:
+        tip (int): total item points computed at each story module if applicable
+
+        """
         if self.story_items is not None:
             tip += story_items[self.story_items]
         return tip
-
-
-
-
