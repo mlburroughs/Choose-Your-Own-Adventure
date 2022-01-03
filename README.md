@@ -7,8 +7,9 @@ The story itself was inspired by the author's trips to New Orleans and personal 
 
 ## Usage
 
-Using Command Line:
+```console
 python3 main_story.py
+```
 
 ## Author
 
