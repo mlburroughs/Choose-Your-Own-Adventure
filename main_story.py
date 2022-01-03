@@ -2,8 +2,9 @@
 main_story.py
 
 Project Title: Choose Your Own Adventure
-Description: This file executes the Choose Your Own Adventure story using an original story created
-by the author. The text content is found in substories.py and the tree structure is found in tree_node.py.
+Description: This file executes the Choose Your Own Adventure story using an
+original story created by the author. The text content is found in substories.py
+and the tree structure is found in tree_node.py.
 
 Author: Michelle Burroughs
 Date: 4/25/2021
@@ -17,7 +18,9 @@ class MainStory:
     """Defines the tree structure and executes interactive story."""
 
     def endings(total_moral_points, total_items):
-        """Computes and prints ending based on items total (self.items_total) and moral points (self.moral_points)."""
+        """Computes and prints ending based on items total (self.items_total)
+        and moral points (self.moral_points).
+        """
 
         total_ending = total_moral_points + total_items
         if total_ending >= 5:
@@ -26,7 +29,8 @@ class MainStory:
             result = endings[1]
         else:
             result = endings[2]
-        print("Conclusion:" + "\n" + result + "\n" + "Moral Points: " + str(total_ending))
+        print("Conclusion:" + "\n" + result + "\n" + "Moral Points: "
+              + str(total_ending))
 
     story_root = TreeNode(texts[0], options[0])
     text2 = TreeNode(texts[1], options[1], mp[0])
